@@ -2,6 +2,8 @@
 <?php include("conecta.php")?>
 <?php include("banco-produto.php");?>
 <?php include("banco-categoria.php");?>
+<?php include("logica-usuario.php");?>
+<?php verificaUsuario();?>
 
 <?php
     $nome = $_POST["nome"];
