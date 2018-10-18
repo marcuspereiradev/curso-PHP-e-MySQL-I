@@ -4,33 +4,19 @@
     <h2>Login</h2>
 
     <?php
-        
-        if(isset($_GET["login"]) && $_GET["login"]==true) { 
-        ?>
-            <p class="alert-success">Logado com sucesso!</p>
-        <?php
-        }
-        ?>
-        <?php
-        if(isset($_GET["login"]) && $_GET["login"]==false) { 
-        ?>
-            <p class="alert-danger">Usuário ou senha inválida!</p>
-        <?php
-        }
-        ?>
-        <?php
-        if(isset($_GET["logout"]) && $_GET["logout"]==true) { 
-        ?>
-            <p class="alert-success">Deslogado com sucesso!</p>
-        <?php
-        }
-    ?>
 
-    <?php
-        if(isset($_GET["falhaDeSeguranca"])) {
+        if(isset($_SESSION["success"])) {
+            ?>
+                <p class="alert-success"><?= $_SESSION["success"]?></p>
+            <?php
+            unset($_SESSION["success"]);
+        }
+        
+        if(isset($_SESSION["danger"])) {
         ?>
-            <p class="alert-danger">Você não tem acesso a essa funcionalidade!</p>
+            <p class="alert-danger"><?= $_SESSION["danger"]?></p>
         <?php
+            unset($_SESSION["danger"]);
         }
     ?>
 
@@ -38,8 +24,8 @@
         if(usuarioEstaLogado()) {
             ?>
                 <p class="text-success">
-                    Você está logado como <?= usuarioLogado() ?>
-                    <a href="logout.php">Deslogar</a>
+                    Você está logado como <?= usuarioLogado($email) ?>
+                    <a href="logout.php" class="btn">Deslogar</a>
                 </p>
             <?php
         }else {
