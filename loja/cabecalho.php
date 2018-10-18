@@ -1,3 +1,9 @@
+
+<?php
+    error_reporting(E_ALL ^ E_NOTICE);
+    require_once("mostra-alerta.php"); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,3 +32,5 @@
 
     <div class="container">
         <div class="principal">
+        <?php  mostraAlerta("success"); ?>
+        <?php mostraAlerta("danger"); ?>

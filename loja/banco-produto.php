@@ -1,4 +1,5 @@
 <!-- Esse é o arquivo que acessa a tabela de produtos. -->
+<?php require_once("conecta.php")?>
 <?php
     function listaProdutos($conexao) {
         $produtos = array();

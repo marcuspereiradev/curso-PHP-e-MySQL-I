@@ -1,16 +1,5 @@
-<?php include("cabecalho.php");?>
-<?php include("conecta.php");?>
-<?php include("banco-produto.php");?>
-<?php include("logica-usuario.php");?>
-
-<?php 
-    if(isset($_SESSION["success"])) {
-        ?>
-            <p class="alert-success"><?= $_SESSION["success"]?></p>
-        <?php
-        unset($_SESSION["success"]);
-    }
-?>
+<?php require_once("cabecalho.php");?>
+<?php require_once("banco-produto.php");?>
 
 <table class="table table-striped table-bordered">
 <?php 
